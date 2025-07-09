@@ -135,6 +135,8 @@ const translation = {
       valuePlaceholder: '환경 값',
       secretTip:
         '민감한 정보나 데이터를 정의하는 데 사용되며, DSL 설정은 유출 방지를 위해 구성됩니다.',
+      description: '설명',
+      descriptionPlaceholder: '변수에 대해 설명하세요',
     },
     export: {
       title: '비밀 환경 변수를 내보내시겠습니까?',
@@ -701,6 +703,7 @@ const translation = {
       inputVars: '입력 변수',
       outputVars: {
         className: '클래스 이름',
+        usage: '모델 사용 정보',
       },
       class: '클래스',
       classNamePlaceholder: '클래스 이름을 작성하세요',
@@ -715,6 +718,11 @@ const translation = {
     },
     parameterExtractor: {
       inputVar: '입력 변수',
+      outputVars: {
+        isSuccess: '성공 여부. 성공 시 값은 1 이고, 실패 시 값은 0 입니다.',
+        errorReason: '오류 원인',
+        usage: '모델 사용 정보',
+      },
       extractParameters: '매개변수 추출',
       importFromTool: '도구에서 가져오기',
       addExtractParameter: '추출 매개변수 추가',
