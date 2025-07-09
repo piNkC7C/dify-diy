@@ -35,24 +35,24 @@ export default function MailAndPasswordAuth({ isInvite, isEmailSetup, allowRegis
       Toast.notify({ type: 'error', message: t('login.error.emailEmpty') })
       return
     }
-    if (!emailRegex.test(email)) {
-      Toast.notify({
-        type: 'error',
-        message: t('login.error.emailInValid'),
-      })
-      return
-    }
+    // if (!emailRegex.test(email)) {
+    //   Toast.notify({
+    //     type: 'error',
+    //     message: t('login.error.emailInValid'),
+    //   })
+    //   return
+    // }
     if (!password?.trim()) {
       Toast.notify({ type: 'error', message: t('login.error.passwordEmpty') })
       return
     }
-    if (!passwordRegex.test(password)) {
-      Toast.notify({
-        type: 'error',
-        message: t('login.error.passwordInvalid'),
-      })
-      return
-    }
+    // if (!passwordRegex.test(password)) {
+    //   Toast.notify({
+    //     type: 'error',
+    //     message: t('login.error.passwordInvalid'),
+    //   })
+    //   return
+    // }
     try {
       setIsLoading(true)
       const loginData: Record<string, any> = {
