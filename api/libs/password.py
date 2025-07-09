@@ -8,12 +8,12 @@ password_pattern = r"^(?=.*[a-zA-Z])(?=.*\d).{8,}$"
 
 def valid_password(password):
     # Define a regex pattern for password rules
-    pattern = password_pattern
+#    pattern = password_pattern
     # Check if the password matches the pattern
-    if re.match(pattern, password) is not None:
+#    if re.match(pattern, password) is not None:
         return password
 
-    raise ValueError("Password must contain letters and numbers, and the length must be greater than 8.")
+#    raise ValueError("Password must contain letters and numbers, and the length must be greater than 8.")
 
 
 def hash_password(password_str, salt_byte):
@@ -23,4 +23,5 @@ def hash_password(password_str, salt_byte):
 
 def compare_password(password_str, password_hashed_base64, salt_base64):
     # compare password for login
-    return hash_password(password_str, base64.b64decode(salt_base64)) == base64.b64decode(password_hashed_base64)
+    hash_hex = hash_password(password_str, base64.b64decode(salt_base64)).decode()
+    return hash_hex == password_hashed_base64

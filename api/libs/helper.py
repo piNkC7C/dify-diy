@@ -65,13 +65,13 @@ class TimestampField(fields.Raw):
 
 def email(email):
     # Define a regex pattern for email addresses
-    pattern = r"^[\w\.!#$%&'*+\-/=?^_`{|}~]+@([\w-]+\.)+[\w-]{2,}$"
+#    pattern = r"^[\w\.!#$%&'*+\-/=?^_`{|}~]+@([\w-]+\.)+[\w-]{2,}$"
     # Check if the email matches the pattern
-    if re.match(pattern, email) is not None:
+#    if re.match(pattern, email) is not None:
         return email
 
-    error = "{email} is not a valid email.".format(email=email)
-    raise ValueError(error)
+#    error = "{email} is not a valid email.".format(email=email)
+#    raise ValueError(error)
 
 
 def uuid_value(value):

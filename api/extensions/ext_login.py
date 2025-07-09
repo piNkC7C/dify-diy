@@ -51,11 +51,14 @@ def load_user_from_request(request_from_flask_login):
                     if account:
                         account.current_tenant = tenant
                         return account
-
+    
+    print(f"request.blueprint: {request.blueprint}")
     if request.blueprint in {"console", "inner_api"}:
+        print(f"auth_token: {auth_token}")
         if not auth_token:
             raise Unauthorized("Invalid Authorization token.")
         decoded = PassportService().verify(auth_token)
+        print(f"decoded: {decoded}")
         user_id = decoded.get("user_id")
         source = decoded.get("token_source")
         if source:
@@ -67,6 +70,7 @@ def load_user_from_request(request_from_flask_login):
         return logged_in_account
     elif request.blueprint == "web":
         decoded = PassportService().verify(auth_token)
+        print(f"decodedweb: {decoded}")
         end_user_id = decoded.get("end_user_id")
         if not end_user_id:
             raise Unauthorized("Invalid Authorization token.")

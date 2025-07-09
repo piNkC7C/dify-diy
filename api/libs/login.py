@@ -51,6 +51,7 @@ def login_required(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
         if request.method in EXEMPT_METHODS or dify_config.LOGIN_DISABLED:
+            print(f"dify_config.LOGIN_DISABLED: {dify_config.LOGIN_DISABLED}")
             pass
         elif not current_user.is_authenticated:
             return current_app.login_manager.unauthorized()  # type: ignore
