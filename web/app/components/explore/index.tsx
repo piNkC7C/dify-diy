@@ -54,7 +54,8 @@ const Explore: FC<IExploreProps> = ({
           }
         }
       >
-        <Sidebar controlUpdateInstalledApps={controlUpdateInstalledApps} />
+        {/* 隐藏侧边栏 */}
+        {/* <Sidebar controlUpdateInstalledApps={controlUpdateInstalledApps} /> */}
         <div className='w-0 grow'>
           {children}
         </div>

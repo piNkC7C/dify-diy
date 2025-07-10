@@ -92,7 +92,10 @@ const AppPublisher = ({
   const systemFeatures = useGlobalPublicStore(s => s.systemFeatures)
   const { app_base_url: appBaseURL = '', access_token: accessToken = '' } = appDetail?.site ?? {}
   const appMode = (appDetail?.mode !== 'completion' && appDetail?.mode !== 'workflow') ? 'chat' : appDetail.mode
-  const appURL = `${appBaseURL}${basePath}/${appMode}/${accessToken}`
+  // 使用可用的token避免登录
+  const realAccessToken = localStorage.getItem('console_token')
+  const refreshToken = localStorage.getItem('refresh_token')
+  const appURL = `${basePath}/${appMode}/${realAccessToken}?refresh_token=${refreshToken}&access_token=${accessToken}`
   const isChatApp = ['chat', 'agent-chat', 'completion'].includes(appDetail?.mode || '')
   const { data: userCanAccessApp, isLoading: isGettingUserCanAccessApp, refetch } = useGetUserCanAccessApp({ appId: appDetail?.id, enabled: false })
   const { data: appAccessSubjects, isLoading: isGettingAppWhiteListSubjects } = useAppWhiteListSubjects(appDetail?.id, open && systemFeatures.webapp_auth.enabled && appDetail?.access_mode === AccessMode.SPECIFIC_GROUPS_MEMBERS)
@@ -155,9 +158,11 @@ const AppPublisher = ({
 
   const handleOpenInExplore = useCallback(async () => {
     try {
+      const accessToken = localStorage.getItem('console_token')
+      const refreshToken = localStorage.getItem('refresh_token')
       const { installed_apps }: any = await fetchInstalledAppList(appDetail?.id) || {}
       if (installed_apps?.length > 0)
-        window.open(`${basePath}/explore/installed/${installed_apps[0].id}`, '_blank')
+        window.open(`${basePath}/explore/installed/${installed_apps[0].id}?access_token=${accessToken}&refresh_token=${refreshToken}`, '_blank')
       else
         throw new Error('No app found in Explore')
     }
@@ -314,16 +319,21 @@ const AppPublisher = ({
                   {!isAppAccessSet && <p className='system-xs-regular mt-1 text-text-warning'>{t('app.publishApp.notSetDesc')}</p>}
                 </div>}
                 <div className='flex flex-col gap-y-1 border-t-[0.5px] border-t-divider-regular p-4 pt-3'>
+                  {/* 运行 */}
                   <Tooltip triggerClassName='flex' disabled={!systemFeatures.webapp_auth.enabled || appDetail?.access_mode === AccessMode.EXTERNAL_MEMBERS || userCanAccessApp?.result} popupContent={t('app.noAccessPermission')} asChild={false}>
                     <SuggestedAction
                       className='flex-1'
                       disabled={!publishedAt || (systemFeatures.webapp_auth.enabled && appDetail?.access_mode !== AccessMode.EXTERNAL_MEMBERS && !userCanAccessApp?.result)}
-                      link={appURL}
+                      // link={appURL}
                       icon={<RiPlayCircleLine className='h-4 w-4' />}
+                      onClick={() => {
+                        publishedAt && handleOpenInExplore()
+                      }}
                     >
                       {t('workflow.common.runApp')}
                     </SuggestedAction>
                   </Tooltip>
+                  {/* 批量运行/嵌入网站 */}
                   {appDetail?.mode === 'workflow' || appDetail?.mode === 'completion'
                     ? (
                       <Tooltip triggerClassName='flex' disabled={!systemFeatures.webapp_auth.enabled || appDetail.access_mode === AccessMode.EXTERNAL_MEMBERS || userCanAccessApp?.result} popupContent={t('app.noAccessPermission')} asChild={false}>
@@ -349,7 +359,8 @@ const AppPublisher = ({
                         {t('workflow.common.embedIntoSite')}
                       </SuggestedAction>
                     )}
-                  <Tooltip triggerClassName='flex' disabled={!systemFeatures.webapp_auth.enabled || userCanAccessApp?.result} popupContent={t('app.noAccessPermission')} asChild={false}>
+                  {/* 在探索打开 */}
+                  {/* <Tooltip triggerClassName='flex' disabled={!systemFeatures.webapp_auth.enabled || userCanAccessApp?.result} popupContent={t('app.noAccessPermission')} asChild={false}>
                     <SuggestedAction
                       className='flex-1'
                       onClick={() => {
@@ -360,7 +371,7 @@ const AppPublisher = ({
                     >
                       {t('workflow.common.openInExplore')}
                     </SuggestedAction>
-                  </Tooltip>
+                  </Tooltip> */}
                   <SuggestedAction
                     disabled={!publishedAt}
                     link='./develop'

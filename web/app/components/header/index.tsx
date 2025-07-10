@@ -19,6 +19,7 @@ import PlanBadge from './plan-badge'
 import LicenseNav from './license-env'
 import { Plan } from '../billing/type'
 import { useGlobalPublicStore } from '@/context/global-public-context'
+import { Button } from '../base/button'
 
 const navClassName = `
   flex items-center relative px-3 h-8 rounded-xl
@@ -45,6 +46,12 @@ const Header = () => {
     return (
       <div className=''>
         <div className='flex items-center justify-between px-2'>
+          {/* 返回上一级 */}
+          <Button variant='tertiary' onClick={() => {
+            window.history.back()
+          }}>
+            返回
+          </Button>
           {/* 头部左侧 */}
           {/* <div className='flex items-center'>
             <Link href="/apps" className='flex h-8 shrink-0 items-center justify-center px-0.5'>
@@ -81,8 +88,14 @@ const Header = () => {
 
   return (
     <div className='flex h-[60px] items-center'>
-      {/* <div className='flex min-w-0 flex-[1]  items-center pl-3 pr-2 min-[1280px]:pr-3'>
-        <Link href="/apps" className='flex h-8 shrink-0 items-center justify-center px-0.5'>
+      <div className='flex min-w-0 flex-[1]  items-center pl-3 pr-2 min-[1280px]:pr-3'>
+        {/* 返回上一级 */}
+        <Button variant='tertiary' onClick={() => {
+          window.history.back()
+        }}>
+          返回
+        </Button>
+        {/* <Link href="/apps" className='flex h-8 shrink-0 items-center justify-center px-0.5'>
           {systemFeatures.branding.enabled && systemFeatures.branding.workspace_logo
             ? <img
               src={systemFeatures.branding.workspace_logo}
@@ -95,9 +108,9 @@ const Header = () => {
         <WorkspaceProvider>
           <WorkplaceSelector />
         </WorkspaceProvider>
-        {enableBilling ? <PlanBadge allowHover sandboxAsUpgrade plan={plan.type} onClick={handlePlanClick} /> : <LicenseNav />}
+        {enableBilling ? <PlanBadge allowHover sandboxAsUpgrade plan={plan.type} onClick={handlePlanClick} /> : <LicenseNav />} */}
       </div>
-      <div className='flex items-center space-x-2'>
+      {/* <div className='flex items-center space-x-2'>
         {!isCurrentWorkspaceDatasetOperator && <ExploreNav className={navClassName} />}
         {!isCurrentWorkspaceDatasetOperator && <AppNav />}
         {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
