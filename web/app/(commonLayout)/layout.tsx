@@ -19,9 +19,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
             <ProviderContextProvider>
               <ModalContextProvider>
                 {/* 注释顶部导航栏 */}
-                {/* <HeaderWrapper>
+                <HeaderWrapper>
                   <Header />
-                </HeaderWrapper> */}
+                </HeaderWrapper>
                 {children}
               </ModalContextProvider>
             </ProviderContextProvider>

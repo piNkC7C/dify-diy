@@ -88,7 +88,8 @@ export default function AppSelector() {
                   "
                 >
                   <div className="px-1 py-1">
-                    <MenuItem disabled>
+                    {/* 个人信息 */}
+                    {/* <MenuItem disabled>
                       <div className='flex flex-nowrap items-center py-2 pl-3 pr-2'>
                         <div className='grow'>
                           <div className='system-md-medium break-all text-text-primary'>
@@ -104,8 +105,9 @@ export default function AppSelector() {
                         </div>
                         <Avatar avatar={userProfile.avatar_url} name={userProfile.name} size={36} />
                       </div>
-                    </MenuItem>
-                    <MenuItem>
+                    </MenuItem> */}
+                    {/* 账户 */}
+                    {/* <MenuItem>
                       <Link
                         className={cn(itemClassName, 'group',
                           'data-[active]:bg-state-base-hover',
@@ -116,7 +118,8 @@ export default function AppSelector() {
                         <div className='system-md-regular grow px-1 text-text-secondary'>{t('common.account.account')}</div>
                         <RiArrowRightUpLine className='size-[14px] shrink-0 text-text-tertiary' />
                       </Link>
-                    </MenuItem>
+                    </MenuItem> */}
+                    {/* 设置 */}
                     <MenuItem>
                       <div className={cn(itemClassName,
                         'data-[active]:bg-state-base-hover',
@@ -126,6 +129,7 @@ export default function AppSelector() {
                       </div>
                     </MenuItem>
                   </div>
+                  {/* 帮助文档 */}
                   {!systemFeatures.branding.enabled && <>
                     <div className='p-1'>
                       <MenuItem>
@@ -140,11 +144,12 @@ export default function AppSelector() {
                           <RiArrowRightUpLine className='size-[14px] shrink-0 text-text-tertiary' />
                         </Link>
                       </MenuItem>
-                      <Support />
+                      {/* <Support /> */}
                       {IS_CLOUD_EDITION && isCurrentWorkspaceOwner && <Compliance />}
                     </div>
-                    <div className='p-1'>
-                      <MenuItem>
+                    {/* 路线图 */}
+                    {/* <div className='p-1'> */}
+                      {/* <MenuItem>
                         <Link
                           className={cn(itemClassName, 'group justify-between',
                             'data-[active]:bg-state-base-hover',
@@ -155,8 +160,9 @@ export default function AppSelector() {
                           <div className='system-md-regular grow px-1 text-text-secondary'>{t('common.userProfile.roadmap')}</div>
                           <RiArrowRightUpLine className='size-[14px] shrink-0 text-text-tertiary' />
                         </Link>
-                      </MenuItem>
-                      <MenuItem>
+                      </MenuItem> */}
+                      {/* 支持 */}
+                      {/* <MenuItem>
                         <Link
                           className={cn(itemClassName, 'group justify-between',
                             'data-[active]:bg-state-base-hover',
@@ -170,8 +176,9 @@ export default function AppSelector() {
                             <GithubStar className='system-2xs-medium-uppercase text-text-tertiary' />
                           </div>
                         </Link>
-                      </MenuItem>
-                      {
+                      </MenuItem> */}
+                      {/* 关于 */}
+                      {/* {
                         document?.body?.getAttribute('data-public-site-about') !== 'hide' && (
                           <MenuItem>
                             <div className={cn(itemClassName, 'justify-between',
@@ -186,10 +193,11 @@ export default function AppSelector() {
                             </div>
                           </MenuItem>
                         )
-                      }
-                    </div>
+                      } */}
+                    {/* </div> */}
                   </>}
-                  <MenuItem disabled>
+                  {/* 主题 */}
+                  {/* <MenuItem disabled>
                     <div className='p-1'>
                       <div className={cn(itemClassName, 'hover:bg-transparent')}>
                         <RiTShirt2Line className='size-4 shrink-0 text-text-tertiary' />
@@ -197,8 +205,9 @@ export default function AppSelector() {
                         <ThemeSwitcher />
                       </div>
                     </div>
-                  </MenuItem>
-                  <MenuItem>
+                  </MenuItem> */}
+                  {/* 退出 */}
+                  {/* <MenuItem>
                     <div className='p-1' onClick={() => handleLogout()}>
                       <div
                         className={cn(itemClassName, 'group justify-between',
@@ -209,7 +218,7 @@ export default function AppSelector() {
                         <div className='system-md-regular grow px-1 text-text-secondary'>{t('common.userProfile.logout')}</div>
                       </div>
                     </div>
-                  </MenuItem>
+                  </MenuItem> */}
                 </MenuItems>
               </Transition>
             </>
