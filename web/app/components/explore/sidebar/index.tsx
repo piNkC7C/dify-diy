@@ -92,7 +92,9 @@ const SideBar: FC<IExploreSideBarProps> = ({
 
   const pinnedAppsCount = installedApps.filter(({ is_pinned }) => is_pinned).length
   return (
-    <div className='w-fit shrink-0 cursor-pointer border-r border-divider-burn px-4 pt-6 sm:w-[216px]'>
+    // 设置宽度为0
+    <div className='w-0 shrink-0 cursor-pointer border-r border-divider-burn'>
+    {/* <div className='w-fit shrink-0 cursor-pointer border-r border-divider-burn px-4 pt-6 sm:w-[216px]'> */}
       <div className={cn(isDiscoverySelected ? 'text-text-accent' : 'text-text-tertiary')}>
         <Link
           href='/explore/apps'

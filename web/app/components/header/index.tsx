@@ -1,22 +1,11 @@
 'use client'
 import { useCallback } from 'react'
-import Link from 'next/link'
 import AccountDropdown from './account-dropdown'
-import AppNav from './app-nav'
-import DatasetNav from './dataset-nav'
 import EnvNav from './env-nav'
-import PluginsNav from './plugins-nav'
-import ExploreNav from './explore-nav'
-import ToolsNav from './tools-nav'
-import { WorkspaceProvider } from '@/context/workspace-context'
 import { useAppContext } from '@/context/app-context'
-import DifyLogo from '@/app/components/base/logo/dify-logo'
-import WorkplaceSelector from '@/app/components/header/account-dropdown/workplace-selector'
 import useBreakpoints, { MediaType } from '@/hooks/use-breakpoints'
 import { useProviderContext } from '@/context/provider-context'
 import { useModalContext } from '@/context/modal-context'
-import PlanBadge from './plan-badge'
-import LicenseNav from './license-env'
 import { Plan } from '../billing/type'
 import { useGlobalPublicStore } from '@/context/global-public-context'
 import { Button } from '../base/button'
@@ -69,6 +58,12 @@ const Header = () => {
             </WorkspaceProvider>
             {enableBilling ? <PlanBadge allowHover sandboxAsUpgrade plan={plan.type} onClick={handlePlanClick} /> : <LicenseNav />}
           </div> */}
+          {/* 返回上一级 */}
+          <Button variant='tertiary' onClick={() => {
+            window.history.back()
+          }}>
+            返回
+          </Button>
           <div className='flex items-center'>
             <AccountDropdown />
             {/* <div className='mr-2'>
@@ -116,6 +111,12 @@ const Header = () => {
         {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
         {!isCurrentWorkspaceDatasetOperator && <ToolsNav className={navClassName} />}
       </div> */}
+      {/* 返回上一级 */}
+      <Button variant='tertiary' onClick={() => {
+        window.history.back()
+      }}>
+        返回
+      </Button>
       <div className='flex min-w-0 flex-[1] items-center justify-end pl-2 pr-3 min-[1280px]:pl-3'>
         <EnvNav />
         <AccountDropdown />
