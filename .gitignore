@@ -211,6 +211,7 @@ mise.toml
 
 # Next.js build output
 .next/
+.next.tar.gz
 
 # AI Assistant
 .roo/
