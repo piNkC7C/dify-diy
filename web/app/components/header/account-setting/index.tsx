@@ -51,9 +51,9 @@ type GroupItem = {
 
 export default function AccountSetting({
   onCancel,
-  activeTab = 'members',
+  activeTab = 'provider',
 }: IAccountSettingProps) {
-  const [activeMenu, setActiveMenu] = useState(activeTab)
+  const [activeMenu, setActiveMenu] = useState('provider')
   const { t } = useTranslation()
   const { enableBilling, enableReplaceWebAppLogo } = useProviderContext()
   const { isCurrentWorkspaceDatasetOperator } = useAppContext()
@@ -68,12 +68,12 @@ export default function AccountSetting({
         icon: <RiBrain2Line className={iconClassName} />,
         activeIcon: <RiBrain2Fill className={iconClassName} />,
       },
-      {
-        key: 'members',
-        name: t('common.settings.members'),
-        icon: <RiGroup2Line className={iconClassName} />,
-        activeIcon: <RiGroup2Fill className={iconClassName} />,
-      },
+      // {
+      //   key: 'members',
+      //   name: t('common.settings.members'),
+      //   icon: <RiGroup2Line className={iconClassName} />,
+      //   activeIcon: <RiGroup2Fill className={iconClassName} />,
+      // },
       {
         // Use key false to hide this item
         key: enableBilling ? 'billing' : false,

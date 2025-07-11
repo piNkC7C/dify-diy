@@ -19,6 +19,7 @@ import PlanBadge from './plan-badge'
 import LicenseNav from './license-env'
 import { Plan } from '../billing/type'
 import { useGlobalPublicStore } from '@/context/global-public-context'
+import { Button } from '../base/button'
 
 const navClassName = `
   flex items-center relative px-3 h-8 rounded-xl
@@ -62,6 +63,12 @@ const Header = () => {
             </WorkspaceProvider>
             {enableBilling ? <PlanBadge allowHover sandboxAsUpgrade plan={plan.type} onClick={handlePlanClick} /> : <LicenseNav />}
           </div> */}
+          {/* 返回上一级 */}
+          <Button variant='tertiary' onClick={() => {
+            window.history.back()
+          }}>
+            返回
+          </Button>
           <div className='flex items-center'>
             <AccountDropdown />
             {/* <div className='mr-2'>
@@ -103,6 +110,12 @@ const Header = () => {
         {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
         {!isCurrentWorkspaceDatasetOperator && <ToolsNav className={navClassName} />}
       </div> */}
+      {/* 返回上一级 */}
+      <Button variant='tertiary' onClick={() => {
+        window.history.back()
+      }}>
+        返回
+      </Button>
       <div className='flex min-w-0 flex-[1] items-center justify-end pl-2 pr-3 min-[1280px]:pl-3'>
         <EnvNav />
         <AccountDropdown />

@@ -155,9 +155,12 @@ const AppPublisher = ({
 
   const handleOpenInExplore = useCallback(async () => {
     try {
+      const accessToken = localStorage.getItem('console_token')
+      const refreshToken = localStorage.getItem('refresh_token')
       const { installed_apps }: any = await fetchInstalledAppList(appDetail?.id) || {}
       if (installed_apps?.length > 0)
-        window.open(`${basePath}/explore/installed/${installed_apps[0].id}`, '_blank')
+        window.open(`${basePath}/explore/installed/${installed_apps[0].id}?access_token=${accessToken}&refresh_token=${refreshToken}`, '_blank')
+      // window.open(`http://123.155.247.219:33000/explore/installed/${installed_apps[0].id}?access_token=${accessToken}&refresh_token=${refreshToken}`, '_blank')
       else
         throw new Error('No app found in Explore')
     }
@@ -318,8 +321,11 @@ const AppPublisher = ({
                     <SuggestedAction
                       className='flex-1'
                       disabled={!publishedAt || (systemFeatures.webapp_auth.enabled && appDetail?.access_mode !== AccessMode.EXTERNAL_MEMBERS && !userCanAccessApp?.result)}
-                      link={appURL}
+                      // link={appURL}
                       icon={<RiPlayCircleLine className='h-4 w-4' />}
+                      onClick={() => {
+                        publishedAt && handleOpenInExplore()
+                      }}
                     >
                       {t('workflow.common.runApp')}
                     </SuggestedAction>
