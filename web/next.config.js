@@ -18,7 +18,7 @@ const hasSetWebPrefix = process.env.NEXT_PUBLIC_WEB_PREFIX
 const port = process.env.PORT || 3000
 const locImageURLs = !hasSetWebPrefix ? [new URL(`http://localhost:${port}/**`), new URL(`http://127.0.0.1:${port}/**`)] : []
 const remoteImageURLs = [hasSetWebPrefix ? new URL(`${process.env.NEXT_PUBLIC_WEB_PREFIX}/**`) : '', ...locImageURLs].filter(item => !!item)
-console.log('remoteImageURLs', remoteImageURLs)
+// console.log('remoteImageURLs', remoteImageURLs)
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -64,6 +64,15 @@ const nextConfig = {
       },
     ]
   },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/difyapi/:path*',
+  //       destination: 'https://console-dify-api.imissniu.com/:path*',
+  //     },
+  //   ]
+  // },
+  allowedDevOrigins: ['http://localhost:3000', 'http://127.0.0.1:3000'],
   output: 'standalone',
 }
 

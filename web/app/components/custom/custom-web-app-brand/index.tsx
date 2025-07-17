@@ -243,7 +243,7 @@ const CustomWebAppBrand = () => {
                 <RiEqualizer2Line className='h-4 w-4 text-text-tertiary' />
               </div>
               <div className='flex items-center gap-1.5'>
-                {!webappBrandRemoved && (
+                {/* {!webappBrandRemoved && (
                   <>
                     <div className='system-2xs-medium-uppercase text-text-tertiary'>POWERED BY</div>
                     {
@@ -254,7 +254,7 @@ const CustomWebAppBrand = () => {
                           : <DifyLogo size='small' />
                     }
                   </>
-                )}
+                )} */}
               </div>
             </div>
           </div>
@@ -305,7 +305,7 @@ const CustomWebAppBrand = () => {
             </div>
           </div>
           <div className='flex h-12 shrink-0 items-center gap-1.5 bg-components-panel-bg p-4 pt-3'>
-            {!webappBrandRemoved && (
+            {/* {!webappBrandRemoved && (
               <>
                 <div className='system-2xs-medium-uppercase text-text-tertiary'>POWERED BY</div>
                 {
@@ -316,7 +316,7 @@ const CustomWebAppBrand = () => {
                       : <DifyLogo size='small' />
                 }
               </>
-            )}
+            )} */}
           </div>
         </div>
       </div>

@@ -82,7 +82,8 @@ const Marketplace = ({
           <span className="body-md-medium relative ml-1 mr-1 text-text-secondary after:absolute after:bottom-[1.5px] after:left-0 after:h-2 after:w-full after:bg-text-text-selected after:content-['']">
             {t('plugin.category.bundles')}
           </span>
-          {t('common.operation.in')}
+          {/* 隐藏市场链接 */}
+          {/* {t('common.operation.in')}
           <a
             href={getMarketplaceUrl('', { language: locale, q: searchPluginText, tags: filterPluginTags.join(','), theme })}
             className='system-sm-medium ml-1 flex items-center text-text-accent'
@@ -90,7 +91,7 @@ const Marketplace = ({
           >
             {t('plugin.marketplace.difyMarketplace')}
             <RiArrowRightUpLine className='h-4 w-4' />
-          </a>
+          </a> */}
         </div>
       </div>
       {

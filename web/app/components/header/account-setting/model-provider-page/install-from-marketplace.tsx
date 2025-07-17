@@ -53,13 +53,14 @@ const InstallFromMarketplace = ({
           <RiArrowDownSLine className={cn('h-4 w-4', collapse && '-rotate-90')} />
           {t('common.modelProvider.installProvider')}
         </div>
-        <div className='mb-2 flex items-center pt-2'>
+        {/* 隐藏市场链接 */}
+        {/* <div className='mb-2 flex items-center pt-2'>
           <span className='system-sm-regular pr-1 text-text-tertiary'>{t('common.modelProvider.discoverMore')}</span>
           <Link target="_blank" href={getMarketplaceUrl('', { theme })} className='system-sm-medium inline-flex items-center text-text-accent'>
             {t('plugin.marketplace.difyMarketplace')}
             <RiArrowRightUpLine className='h-4 w-4' />
           </Link>
-        </div>
+        </div> */}
       </div>
       {!collapse && isAllPluginsLoading && <Loading type='area' />}
       {

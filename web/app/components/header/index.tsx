@@ -20,6 +20,22 @@ import LicenseNav from './license-env'
 import { Plan } from '../billing/type'
 import { useGlobalPublicStore } from '@/context/global-public-context'
 import { Button } from '../base/button'
+import { useDocLink } from '@/context/i18n'
+import {
+  RiAccountCircleLine,
+  RiArrowRightUpLine,
+  RiBookOpenLine,
+  RiGithubLine,
+  RiGraduationCapFill,
+  RiInformation2Line,
+  RiLogoutBoxRLine,
+  RiMap2Line,
+  RiSettings3Line,
+  RiStarLine,
+  RiTShirt2Line,
+} from '@remixicon/react'
+import cn from '@/utils/classnames'
+import { useTranslation } from 'react-i18next'
 
 const navClassName = `
   flex items-center relative px-3 h-8 rounded-xl
@@ -28,6 +44,10 @@ const navClassName = `
 `
 
 const Header = () => {
+  const itemClassName = `
+    flex items-center w-full h-8 pl-3 pr-2 text-text-secondary system-md-regular
+    rounded-lg hover:bg-state-base-hover cursor-pointer gap-1
+  `
   const { isCurrentWorkspaceEditor, isCurrentWorkspaceDatasetOperator } = useAppContext()
   const media = useBreakpoints()
   const isMobile = media === MediaType.mobile
@@ -41,6 +61,10 @@ const Header = () => {
     else
       setShowAccountSettingModal({ payload: 'billing' })
   }, [isFreePlan, setShowAccountSettingModal, setShowPricingModal])
+  // 设置
+  // 帮助文档
+  const docLink = useDocLink()
+  const { t } = useTranslation()
 
   if (isMobile) {
     return (
@@ -70,7 +94,27 @@ const Header = () => {
             返回
           </Button>
           <div className='flex items-center'>
-            <AccountDropdown />
+            <Button variant='tertiary' onClick={() => {
+              setShowAccountSettingModal({ payload: 'members' })
+            }}>
+              设置
+            </Button>
+            {/* <Link
+              className={cn(itemClassName, 'group justify-between',
+                'data-[active]:bg-state-base-hover',
+              )}
+              href={docLink('/introduction')}
+              target='_blank' rel='noopener noreferrer'>
+              <RiBookOpenLine className='size-4 shrink-0 text-text-tertiary' />
+              <div className='system-md-regular grow px-1 text-text-secondary'>{t('common.userProfile.helpCenter')}</div>
+              <RiArrowRightUpLine className='size-[14px] shrink-0 text-text-tertiary' />
+            </Link> */}
+            <Button variant='tertiary' onClick={() => {
+              window.open(docLink('/introduction'), '_blank')
+            }}>
+              帮助文档
+            </Button>
+            {/* <AccountDropdown /> */}
             {/* <div className='mr-2'>
               <PluginsNav />
             </div> */}
@@ -116,9 +160,36 @@ const Header = () => {
       }}>
         返回
       </Button>
+      {/* <div className='flex items-center space-x-2'>
+        {!isCurrentWorkspaceDatasetOperator && <ExploreNav className={navClassName} />}
+        {!isCurrentWorkspaceDatasetOperator && <AppNav />}
+        {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
+        {!isCurrentWorkspaceDatasetOperator && <ToolsNav className={navClassName} />}
+      </div> */}
       <div className='flex min-w-0 flex-[1] items-center justify-end pl-2 pr-3 min-[1280px]:pl-3'>
         <EnvNav />
-        <AccountDropdown />
+        {/* <PluginsNav /> */}
+        {/* <Button variant='tertiary' onClick={() => {
+          setShowAccountSettingModal({ payload: 'provider' })
+        }}>
+          设置
+        </Button> */}
+        {/* <Link
+          className={cn(itemClassName, 'group justify-between',
+            'data-[active]:bg-state-base-hover',
+          )}
+          href={docLink('/introduction')}
+          target='_blank' rel='noopener noreferrer'>
+          <RiBookOpenLine className='size-4 shrink-0 text-text-tertiary' />
+          <div className='system-md-regular grow px-1 text-text-secondary'>{t('common.userProfile.helpCenter')}</div>
+          <RiArrowRightUpLine className='size-[14px] shrink-0 text-text-tertiary' />
+        </Link> */}
+        {/* <Button variant='tertiary' onClick={() => {
+          window.open(docLink('/introduction'), '_blank')
+        }}>
+          帮助文档
+        </Button> */}
+        {/* <AccountDropdown /> */}
         {/* <div className='mr-2'>
           <PluginsNav />
         </div> */}

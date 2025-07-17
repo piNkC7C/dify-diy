@@ -181,7 +181,8 @@ export default function AccountSetting({
           </div>
         </div>
         <div className='relative flex w-[824px]'>
-          <div className='absolute -right-11 top-6 z-[9999] flex flex-col items-center'>
+          {/* 隐藏设置页的关闭按钮 */}
+          {/* <div className='absolute -right-11 top-6 z-[9999] flex flex-col items-center'>
             <Button
               variant='tertiary'
               size='large'
@@ -191,7 +192,7 @@ export default function AccountSetting({
               <RiCloseLine className='h-5 w-5' />
             </Button>
             <div className='system-2xs-medium-uppercase mt-1 text-text-tertiary'>ESC</div>
-          </div>
+          </div> */}
           <div ref={scrollRef} className='w-full overflow-y-auto bg-components-panel-bg pb-4'>
             <div className={cn('sticky top-0 z-20 mx-8 mb-[18px] flex items-center bg-components-panel-bg pb-2 pt-[27px]', scrolled && 'border-b border-divider-regular')}>
               <div className='title-2xl-semi-bold shrink-0 text-text-primary'>
