@@ -57,7 +57,8 @@ const ExternalKnowledgeBaseCreate: React.FC<ExternalKnowledgeBaseCreateProps> = 
           <div className='flex w-full max-w-[640px] grow flex-col items-center gap-4 pb-8 pt-6'>
             <div className='relative flex flex-col items-center gap-[2px] self-stretch py-2'>
               <div className='system-xl-semibold grow self-stretch text-text-primary'>{t('dataset.connectDataset')}</div>
-              <p className='system-sm-regular text-text-tertiary'>
+              {/* 隐藏帮助文档链接 */}
+              {/* <p className='system-sm-regular text-text-tertiary'>
                 <span>{t('dataset.connectHelper.helper1')}</span>
                 <span className='system-sm-medium text-text-secondary'>{t('dataset.connectHelper.helper2')}</span>
                 <span>{t('dataset.connectHelper.helper3')}</span>
@@ -65,7 +66,7 @@ const ExternalKnowledgeBaseCreate: React.FC<ExternalKnowledgeBaseCreateProps> = 
                   {t('dataset.connectHelper.helper4')}
                 </a>
                 <span>{t('dataset.connectHelper.helper5')} </span>
-              </p>
+              </p> */}
               <Button
                 className='absolute left-[-44px] top-1 flex h-8 w-8 items-center justify-center rounded-full p-2'
                 variant='tertiary'
@@ -121,7 +122,8 @@ const ExternalKnowledgeBaseCreate: React.FC<ExternalKnowledgeBaseCreateProps> = 
             </div>
           </div>
         </div>
-        <InfoPanel />
+        {/* 隐藏 info panel */}
+        {/* <InfoPanel /> */}
       </div>
     </div>
   )

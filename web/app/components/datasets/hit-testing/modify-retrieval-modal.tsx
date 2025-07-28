@@ -70,7 +70,8 @@ const ModifyRetrievalModal: FC<Props> = ({
       <div className='h-15 flex shrink-0 justify-between px-3 pb-1 pt-3.5'>
         <div className='text-base font-semibold text-text-primary'>
           <div>{t('datasetSettings.form.retrievalSetting.title')}</div>
-          <div className='text-xs font-normal leading-[18px] text-text-tertiary'>
+          {/* 隐藏了解更多 */}
+          {/* <div className='text-xs font-normal leading-[18px] text-text-tertiary'>
             <a
               target='_blank'
               rel='noopener noreferrer'
@@ -83,7 +84,7 @@ const ModifyRetrievalModal: FC<Props> = ({
               {t('datasetSettings.form.retrievalSetting.learnMore')}
             </a>
             {t('datasetSettings.form.retrievalSetting.description')}
-          </div>
+          </div> */}
         </div>
         <div className='flex'>
           <div

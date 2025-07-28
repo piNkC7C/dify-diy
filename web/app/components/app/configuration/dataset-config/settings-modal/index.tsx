@@ -329,10 +329,11 @@ const SettingsModal: FC<SettingsModalProps> = ({
             <div className={cn(labelClass, 'w-auto min-w-[168px]')}>
               <div>
                 <div className='system-sm-semibold text-text-secondary'>{t('datasetSettings.form.retrievalSetting.title')}</div>
-                <div className='text-xs font-normal leading-[18px] text-text-tertiary'>
+                {/* 隐藏了解更多 */}
+                {/* <div className='text-xs font-normal leading-[18px] text-text-tertiary'>
                   <a target='_blank' rel='noopener noreferrer' href={docLink('/guides/knowledge-base/create-knowledge-and-upload-documents/setting-indexing-methods#setting-the-retrieval-setting')} className='text-text-accent'>{t('datasetSettings.form.retrievalSetting.learnMore')}</a>
                   {t('datasetSettings.form.retrievalSetting.description')}
-                </div>
+                </div> */}
               </div>
             </div>
             <div>

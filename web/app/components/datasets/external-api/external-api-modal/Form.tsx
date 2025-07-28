@@ -57,7 +57,8 @@ const Form: FC<FormProps> = React.memo(({
             {label[i18n.language] || label.en_US}
             {required && <span className='ml-1 text-red-500'>*</span>}
           </label>
-          {variable === 'endpoint' && (
+          {/* 隐藏外部知识库链接 */}
+          {/* {variable === 'endpoint' && (
             <a
               href={docLink('/guides/knowledge-base/connect-external-knowledge-base') || '/'}
               target='_blank'
@@ -67,7 +68,7 @@ const Form: FC<FormProps> = React.memo(({
               <RiBookOpenLine className='mr-1 h-3 w-3 text-text-accent' />
               {t('dataset.externalAPIPanelDocumentation')}
             </a>
-          )}
+          )} */}
         </div>
         <Input
           type={type === 'secret' ? 'password' : 'text'}

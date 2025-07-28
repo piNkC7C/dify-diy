@@ -305,14 +305,15 @@ const Documents: FC<IDocumentsProps> = ({ datasetId }) => {
         <h1 className='text-base font-semibold text-text-primary'>{t('datasetDocuments.list.title')}</h1>
         <div className='flex items-center space-x-0.5 text-sm font-normal text-text-tertiary'>
           <span>{t('datasetDocuments.list.desc')}</span>
-          <a
+          {/* 隐藏了解更多 */}
+          {/* <a
             className='flex items-center text-text-accent'
             target='_blank'
             href={docLink('/guides/knowledge-base/integrate-knowledge-within-application')}
           >
             <span>{t('datasetDocuments.list.learnMore')}</span>
             <RiExternalLinkLine className='h-3 w-3' />
-          </a>
+          </a> */}
         </div>
       </div>
       <div className='flex flex-1 flex-col px-6 py-4'>
