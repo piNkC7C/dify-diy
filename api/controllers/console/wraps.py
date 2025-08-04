@@ -18,12 +18,12 @@ from services.operation_service import OperationService
 
 from .error import NotInitValidateError, NotSetupError, UnauthorizedAndForceLogout
 
-
 def account_initialization_required(view):
     @wraps(view)
     def decorated(*args, **kwargs):
         # check account initialization
         account = current_user
+        # print(vars(account))
 
         if account.status == AccountStatus.UNINITIALIZED:
             raise AccountNotInitializedError()

@@ -163,9 +163,9 @@ class AccountService:
             base64_password_hashed = base64.b64encode(password_hashed).decode()
             account.password = base64_password_hashed
             account.password_salt = base64_salt
-        print("account.password", account.password)
-        print("account.password_salt", account.password_salt)
-        print("account.password", password)
+        # print("account.password", account.password)
+        # print("account.password_salt", account.password_salt)
+        # print("account.password", password)
         if account.password is None or not compare_password(password, account.password, account.password_salt):
             raise AccountPasswordError("Invalid email or password.")
 
@@ -373,7 +373,7 @@ class AccountService:
 
     @staticmethod
     def refresh_token(refresh_token: str) -> TokenPair:
-        print("refresh token", AccountService._get_refresh_token_key(refresh_token))
+        # print("refresh token", AccountService._get_refresh_token_key(refresh_token))
         # Verify the refresh token
         account_id = redis_client.get(AccountService._get_refresh_token_key(refresh_token))
         if not account_id:
