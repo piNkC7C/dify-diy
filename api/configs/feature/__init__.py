@@ -34,8 +34,8 @@ class SecurityConfig(BaseSettings):
 
     LOGIN_DISABLED: bool = Field(
         description="Whether to disable login checks",
-        default=False,
-        # default=True,
+        # default=False,
+        default=True,
     )
 
     ADMIN_API_KEY_ENABLE: bool = Field(

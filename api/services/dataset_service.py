@@ -1239,6 +1239,7 @@ class DocumentService:
                             file_name,
                             batch,
                         )
+                        # print('55555555555555555',vars(document))
                         db.session.add(document)
                         db.session.flush()
                         document_ids.append(document.id)

@@ -23,7 +23,6 @@ def account_initialization_required(view):
     def decorated(*args, **kwargs):
         # check account initialization
         account = current_user
-        # print(vars(account))
 
         if account.status == AccountStatus.UNINITIALIZED:
             raise AccountNotInitializedError()

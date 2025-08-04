@@ -23,6 +23,7 @@ def document_indexing_task(dataset_id: str, document_ids: list):
     """
     documents = []
     start_at = time.perf_counter()
+    logging.info(click.style("dataset_id: {}".format(dataset_id), fg="green"))
 
     dataset = db.session.query(Dataset).filter(Dataset.id == dataset_id).first()
     if not dataset:
